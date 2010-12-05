@@ -131,7 +131,7 @@ function uncaptchalous_form_alter(&$form, $form_state, $form_id) {
       '#default_value' => '',
       '#size' => 60,
       '#maxlength' => 128,
-      '#prefix' => '<div class="uchp">',
+      '#prefix' => '<div id="uchp">',
       '#suffix' => '</div>',
     );
     drupal_add_css(drupal_get_path('module', 'uncaptchalous') . '/uncaptchalous.css');
