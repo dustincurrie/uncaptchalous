@@ -4,7 +4,7 @@
  * Menu callback for admin/webform/settings.
  */
 
-function uncaptchalous_settings($form) {
+function uncaptchalous_settings() {
   $form = array();
 
   $form['uncaptchalous_javascript'] = array(
@@ -38,6 +38,7 @@ function uncaptchalous_settings($form) {
     '#description' => t('Change this value to throw off bots'),
     '#default_value' => variable_get('uncaptchalous_honeypot_field_title', 'url'),
   );
+
   $form['form_vis_settings'] = array(
     '#type' => 'fieldset',
     '#title' => t('Form specific visibility settings'),
@@ -45,7 +46,7 @@ function uncaptchalous_settings($form) {
   );
    $access = user_access('use PHP for block visibility');
    $options = array(t('Use on every form except the listed form ids.'), t('Show on only the listed form ids.'));
-   $description = t("Enter one form id per line as form ids. The '*' character is a wildcard. Example paths are %blog for the blog page and %blog-wildcard for every personal blog. %front is the front page.", array('%blog' => 'blog', '%blog-wildcard' => 'blog/*', '%front' => '<front>'));
+   $description = t("Enter one form id per line as form ids. The '*' character is a wildcard.");
 
    if ($access) {
       $options[] = t('Show if the following PHP code returns <code>TRUE</code> (PHP-mode, experts only).');
@@ -57,12 +58,13 @@ function uncaptchalous_settings($form) {
       '#options' => $options,
       '#default_value' => variable_get('uncaptchalous_visibility', 1),
     );
+
     $form['form_vis_settings']['uncaptchalous_form_ids'] = array(
       '#type' => 'textarea',
       '#title' => t('Form Ids'),
       '#default_value' => variable_get('uncaptchalous_form_ids', ""),
       '#description' => $description,
     );
-  
+
   return system_settings_form($form);
 }
