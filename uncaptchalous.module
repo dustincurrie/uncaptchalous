@@ -60,7 +60,6 @@ function uncaptchalous_form_alter(&$form, $form_state, $form_id) {
       $uc_validate = (drupal_match_path($form_id, variable_get('uncaptchalous_form_ids', ''))) ? TRUE : FALSE;
       break;
     case "2":
-       dsm(variable_get('uncaptchalous_form_ids', ''));
        $uc_validate = drupal_eval(variable_get('uncaptchalous_form_ids', ''));
       break;
   }
