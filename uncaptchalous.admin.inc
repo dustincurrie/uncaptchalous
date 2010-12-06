@@ -18,7 +18,7 @@ function uncaptchalous_settings() {
 
   $form['uncaptchalous_javascript'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Hidden Javascript actions'),
+    '#title' => t('Hidden JavaScript actions'),
     '#description' => t('Require Javascript to perform actions on hidden elements in forms for
                          forms to validate. If these actions are not performed, it is assumed
                          that the form was not submitted by a human user.  NOTE: This method requires javascript'),
