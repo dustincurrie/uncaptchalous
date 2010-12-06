@@ -82,8 +82,8 @@ function uncaptchalous_form_alter(&$form, $form_state, $form_id) {
         '#suffix' => '</div>',
       );
       drupal_add_css(drupal_get_path('module', 'uncaptchalous') . '/uncaptchalous.css');
+      $form['uncaptchalous']['#element_validate'] =  array('uncaptchalous_validate');
     }
-    $form['uncaptchalous']['#element_validate'] =  array('uncaptchalous_validate');
   }
 }
 
